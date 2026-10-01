@@ -10,7 +10,7 @@ Supported firmware: 7.00 through 13.60.
 
 ## Modifications by Sailor Noheals
 A feature to press L2 has been added to allow the payloads to run without etaHEN being sent. This allows you to access the normal PS5 debug settings menu. However, features that rely on etaHEN will not function.
-The payload `PS5SX2Helper.elf` file has been added to the list of payloads sent to provide more automatic support for the PS5SX2 application on exploited PS5 systems. If PS5SX2 is crashing on launch, this may be the cause. Make sure that the helper payload is running.
+The payload `PS5SX2Helper.elf` file has been added to the list of payloads sent in both the L2 and R2 methods to provide more automatic support for the PS5SX2 application on exploited PS5 systems. If PS5SX2 is crashing on launch, this may be the cause. Make sure that the helper payload is running.
 
 ## Stability notes
 Webkit may need several attempts, reload the page if the browser stalls. The kernel exploit may hang or panic the console, so reboot before trying again if that happens.
