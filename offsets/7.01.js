@@ -389,7 +389,7 @@ const OFFSET_KERNEL_VMSPACE_VM_PMAP            = 0x2e8;
 const OFFSET_KERNEL_DATA                       = 0x00C50000;
 
 window.KRW = {
-    firmware: "7.00",
+    firmware: "7.01",
     security_flags: OFFSET_KERNEL_SECURITY_FLAGS,
     kernelData: OFFSET_KERNEL_DATA,
     allproc:    OFFSET_KERNEL_ALLPROC,
@@ -414,7 +414,7 @@ window.KRW = {
     },
     walkCounter: { addr: 0x03C93F38, mib: [9, 7] },
     nodeMutex: 0x01A6FE18,
-    rodataProbe: { rva: 0x01010A7A, text: "_aio_submit_cmd" },
+    rodataProbe: { rva: 0x01010FA2, text: "_aio_submit_cmd" },
     aio: {
         waiterSize: 0x38, requestSize: 0x28,
         group: { num: 0x00, state: 0x08, waiters: 0x50 },
