@@ -4,6 +4,7 @@ Supported firmware: 7.00 through 13.60.
 ## Usage
 - Run `python serve.py` locally, and visit the provided URL on the PS5.
 - The default payloads are stored in `payloads/` after a successful run, the ELF loader listens on port `9021`.
+- This version of the exploit will not show the text displaying that the elfldr is listening. However, the functionality has been maintained, and it is actually still listening on port `9021` just as it normally would.
 - After elfldr starts on port `9021`, you can press R2 to send `kstuff.elf`, `shadowmountplus.elf`, then `etaHEN.elf`.
 - You can also press L2 to send only `kstuff.elf`, and `shadowmountplus.elf`. This alternate input does not send the etaHEN payload.
 
