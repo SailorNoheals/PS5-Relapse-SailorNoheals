@@ -2,10 +2,10 @@
 Supported firmware: 7.00 through 13.60.
 
 ## Usage
-- In the network settings, set Primary DNS to `45.56.67.85` (Recommended)
-- Run `python serve.py` locally, or open https://ntfargo.github.io/Relapse-Exploit/ on the PS5.
+- Run `python serve.py` locally, and visit the provided URL on the PS5.
 - The default payloads are stored in `payloads/` after a successful run, the ELF loader listens on port `9021`.
 - After elfldr starts on port `9021`, you can press R2 to send `kstuff.elf`, `shadowmountplus.elf`, then `etaHEN.elf`.
+- You can also press L2 to send only `kstuff.elf`, and `shadowmountplus.elf`. This alternate input does not send the etaHEN payload.
 
 ## Stability notes
 Webkit may need several attempts, reload the page if the browser stalls. The kernel exploit may hang or panic the console, so reboot before trying again if that happens.
