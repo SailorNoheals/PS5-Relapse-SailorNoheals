@@ -154,7 +154,7 @@ async function sendElf(name, payload, p, chain) {
 }
 
 export async function loadOptionalPayloads(p, chain, log) {
-  log("preparing optional payloads");
+  log("preparing optional payloads with etaHEN...");
   const kstuff = await mapElf("kstuff.elf", p, chain);
   const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
   const etaHEN = await mapElf("etaHEN.elf", p, chain);
@@ -171,7 +171,7 @@ export async function loadOptionalPayloads(p, chain, log) {
 }
 
 export async function loadOptionalPayloadsWithoutEtaHEN(p, chain, log) {
-  log("preparing optional payloads");
+  log("preparing optional payloads without etaHEN...");
   const kstuff = await mapElf("kstuff.elf", p, chain);
   const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
   const PS5SX2Helper = await mapElf("PS5SX2Helper.elf", p, chain);

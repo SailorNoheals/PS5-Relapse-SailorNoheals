@@ -81,14 +81,16 @@ function log(message, type = "log") {
 }
 
 function watchR2(onPress) {
-  function onKey(event) {
+  function onKey(event) 
+  {
+    // if (event.key !== "F8" || event.code !== "Unidentified") return;
     if (event.key !== "F8" || event.code !== "Unidentified") return;
     window.removeEventListener("keydown", onKey, true);
     event.preventDefault();
     onPress();
   }
 
-  log("press R2 to load kstuff, shadowmountplus, PS5SX2Helper, and etaHEN", "info");
+  log("Press R2 to load kstuff, shadowmountplus, PS5SX2Helper, and etaHEN", "info");
   window.addEventListener("keydown", onKey, true);
 }
 
@@ -99,7 +101,7 @@ function watchL2(onPress) {
     event.preventDefault();
     onPress();
   }
-  log("press L2 to load kstuff, shadowmountplus, and PS5SX2Helper without etaHEN", "info");
+  log("Press L2 to load kstuff, shadowmountplus, and PS5SX2Helper without etaHEN", "info");
   window.addEventListener("keydown", onKey, true);
 }
 

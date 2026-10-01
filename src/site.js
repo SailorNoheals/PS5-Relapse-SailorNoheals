@@ -13,7 +13,7 @@ function writeLog(message, type = "log", replace = false) {
   if (type === "error") marker = "-";
   if (type === "info" || type === "success") marker = "+";
   line.textContent = `[${marker}] ${message}`;
-  output.scrollTop = output.scrollHeight;
+  output.scrollBottom = output.scrollHeight;
 }
 
 function writeEvent(name, detail, type) {
@@ -53,6 +53,7 @@ async function run() {
   if (rejection)
     throw new Error(rejection);
   writeLog("Credits: ntfargo, ufm42, Sonic_Iso, Jordy, Dr. Yenyen, TheFlow, SlidyBat, Flatz, cow, nhk, bollarz, Sleirsgoevy, EchoStretch, EarthOnion", "info");
+  writeLog('Modifications made by Sailor Noheals')
   writeLog(`Agent: ${navigator.userAgent}`, "info");
   writeLog(`Firmware: ${window.fw_str}`, "info");
   const primitive = await getPrimitive();
