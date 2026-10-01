@@ -82,26 +82,24 @@ function log(message, type = "log") {
 
 function watchR2(onPress) {
   function onKey(event) {
-    log("Watching R2 for optional payloads with EtaHEN", "info");
     if (event.key !== "F8" || event.code !== "Unidentified") return;
     window.removeEventListener("keydown", onKey, true);
     event.preventDefault();
     onPress();
   }
 
-  log("press R2 to load kstuff, shadowmountplus and etaHEN", "info");
+  log("press R2 to load kstuff, shadowmountplus, PS5SX2Helper, and etaHEN", "info");
   window.addEventListener("keydown", onKey, true);
 }
 
 function watchL2(onPress) {
   function onKey(event) {
-    log("Watching L2 for optional payloads without EtaHEN", "info");
     if (event.key !== "F7" || event.code !== "Unidentified") return;
     window.removeEventListener("keydown", onKey, true);
     event.preventDefault();
     onPress();
   }
-  log("press L2 to load kstuff, shadowmountplus without etaHEN", "info");
+  log("press L2 to load kstuff, shadowmountplus, and PS5SX2Helper without etaHEN", "info");
   window.addEventListener("keydown", onKey, true);
 }
 
@@ -295,7 +293,6 @@ async function main(userlandRW) {
     log("kernel exploit complete", "info");
     watchR2(async () => {
       try {
-        log("Watching R2 for optional payloads with EtaHEN", "info");
         const { loadOptionalPayloads } = await import("./kexp.js");
         await loadOptionalPayloads(p, chain, (message) => log(message, "info"));
       } catch (error) {
@@ -304,7 +301,6 @@ async function main(userlandRW) {
     });
     watchL2(async () => {
       try {
-        log("Watching L2 for optional payloads without EtaHEN", "info");
         const { loadOptionalPayloadsWithoutEtaHEN } = await import("./kexp.js");
         await loadOptionalPayloadsWithoutEtaHEN(p, chain, (message) => log(message, "info"));
       } catch (error) {
