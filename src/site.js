@@ -30,7 +30,7 @@ async function getPrimitive() {
   if (!primitive || typeof primitive.read8 !== "function")
     throw new Error("Memory primitive unavailable");
 
-  writeLog("ARW ready", "success");
+  // writeLog("ARW ready", "success");
   return primitive;
 }
 

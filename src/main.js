@@ -201,9 +201,9 @@ async function prepareRop(p) {
     });
   }
 
-  jbmark("Worker", "waiting");
+  // jbmark("Worker", "waiting");
   await waitForWorker();
-  jbmark("Worker", "ready");
+  // jbmark("Worker", "ready");
 
   const workerStack = await findWorkerStack(p, libKernelBase);
   const originalContext = malloc(0x40);
@@ -279,7 +279,7 @@ async function prepareRop(p) {
   if (pid.low == 0) {
     throw new Error("WebKit exploit failed.");
   }
-  jbmark("Worker chain", "ready");
+  // jbmark("Worker chain", "ready");
 
   return { p: runtime, chain };
 }
