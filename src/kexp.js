@@ -168,6 +168,7 @@ export async function loadOptionalPayloads(p, chain, log) {
   log("etaHEN.elf sent");
   await sendElf("PS5SX2Helper.elf", PS5SX2Helper, p, chain);
   log("PS5SX2Helper.elf sent");
+  log("All requested payloads have been sent. Please wait for etaHEN to load as it will close the browser for you...")
 }
 
 export async function loadOptionalPayloadsWithoutEtaHEN(p, chain, log) {
@@ -182,6 +183,7 @@ export async function loadOptionalPayloadsWithoutEtaHEN(p, chain, log) {
   log("shadowmountplus.elf sent");
   await sendElf("PS5SX2Helper.elf", PS5SX2Helper, p, chain);
   log("PS5SX2Helper.elf sent");
+  log("All requested playloads have been sent. You may now close the internet browser by holding the PS button down.")
 }
 
 function patchShellcode(blob, symbols) {
