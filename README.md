@@ -5,11 +5,12 @@ Supported firmware: 7.00 through 13.60.
 - Run `python serve.py` locally, and visit the provided URL on the PS5.
 - The default payloads are stored in `payloads/` after a successful run, the ELF loader listens on port `9021`.
 - After elfldr starts on port `9021`, you can press R2 to send `kstuff.elf`, `shadowmountplus.elf`, `PS5SX2Helper.elf`, then `etaHEN.elf`.
-- Alternatively, You can press L2 to send only `kstuff.elf`, `PS5SX2Helper.elf`, and `shadowmountplus.elf`. This alternate input does not send the etaHEN payload.
+- Alternatively, You can press L2 to send only `kstuff.elf`, `PS5SX2Helper.elf`, and `shadowmountplus.elf`. This method sends `OnionHE.elf` 1 instead of `etaHEN.elf`
 
 ## Modifications by Sailor Noheals
-A feature to press L2 has been added to allow the payloads to run without etaHEN being sent. This allows you to access the normal PS5 debug settings menu. However, features that rely on etaHEN will not function.
+A feature to press L2 has been added to allow the payloads to run without etaHEN being sent.
 
+OnionHEN has been added as an alternative to etaHEN. 
 
 The payload `PS5SX2Helper.elf` file has been added to the list of payloads sent in both the L2 and R2 methods to provide more automatic support for the PS5SX2 application on exploited PS5 systems. If PS5SX2 is crashing on launch, this may be the cause. Make sure that the helper payload is running.
 
