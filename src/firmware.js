@@ -17,6 +17,7 @@ window.fw_str = firmwareVersion;
 window.firmware = {
   rejection() {
     if (!firmwareUserAgent.includes("PlayStation 5")) {
+      alert("You are not on a PlayStation 5 console. Please visit this page from a PlayStation 5 Console.");
       return "PlayStation 5 Required";
     }
 

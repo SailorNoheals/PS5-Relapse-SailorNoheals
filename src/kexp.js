@@ -1,5 +1,6 @@
 import { int64 } from "./utils/int64.js";
 
+
 const O_NONBLOCK = 0x4;
 const PROT_RW = 0x3, PROT_RWX = 0x7;
 const MAP_SHARED = 0x1, MAP_PRIVATE_ANON = 0x1002;
@@ -136,7 +137,7 @@ async function connectToElfldr(p, chain) {
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
 
-  throw new Error("elfldr is not listening on port 9021");
+  throw new Error("elfldr is now listening on port 9021");
 }
 
 async function sendElf(name, payload, p, chain) {
@@ -153,37 +154,40 @@ async function sendElf(name, payload, p, chain) {
   }
 }
 
-export async function loadOptionalPayloads(p, chain, log) {
-  log("R2 pressed! Preparing optional payloads with etaHEN...");
-  const kstuff = await mapElf("kstuff.elf", p, chain);
-  const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
-  const etaHEN = await mapElf("etaHEN.elf", p, chain);
-  const PS5SX2Helper = await mapElf("PS5SX2Helper.elf", p, chain);
-  await sendElf("kstuff.elf", kstuff, p, chain);
-  log("kstuff.elf sent");
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  await sendElf("shadowmountplus.elf", shadowmount, p, chain);
-  log("shadowmountplus.elf sent");
-  await sendElf("etaHEN.elf", etaHEN, p, chain);
-  log("etaHEN.elf sent");
-  await sendElf("PS5SX2Helper.elf", PS5SX2Helper, p, chain);
-  log("PS5SX2Helper.elf sent");
-  log("All requested payloads have been sent. Please wait for etaHEN to load as it will close the browser for you...")
+export async function loadOptionalPayloadsWithEtaHEN(p, chain, log) {
+    log("R2 pressed! Preparing optional payloads with etaHEN...");
+    const kstuff = await mapElf("kstuff.elf", p, chain);
+    const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
+    const etaHEN = await mapElf("etaHEN.elf", p, chain);
+    const PS5SX2Helper = await mapElf("PS5SX2Helper.elf", p, chain);
+    await sendElf("kstuff.elf", kstuff, p, chain);
+    log("kstuff.elf sent");
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await sendElf("shadowmountplus.elf", shadowmount, p, chain);
+    log("shadowmountplus.elf sent");
+    await sendElf("etaHEN.elf", etaHEN, p, chain);
+    log("etaHEN.elf sent");
+    await sendElf("PS5SX2Helper.elf", PS5SX2Helper, p, chain);
+    log("PS5SX2Helper.elf sent");
+    log("All requested payloads have been sent. Please wait for etaHEN to load as it will close the browser for you...");
 }
 
-export async function loadOptionalPayloadsWithoutEtaHEN(p, chain, log) {
-  log("L2 pressed! Preparing optional payloads with etaHEN...");
-  const kstuff = await mapElf("kstuff.elf", p, chain);
-  const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
-  const PS5SX2Helper = await mapElf("PS5SX2Helper.elf", p, chain);
-  await sendElf("kstuff.elf", kstuff, p, chain);
-  log("kstuff.elf sent");
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  await sendElf("shadowmountplus.elf", shadowmount, p, chain);
-  log("shadowmountplus.elf sent");
-  await sendElf("PS5SX2Helper.elf", PS5SX2Helper, p, chain);
-  log("PS5SX2Helper.elf sent");
-  log("All requested playloads have been sent. You may now close the internet browser by holding the PS button down.")
+export async function loadOptionalPayloadsWithOnionHEN(p, chain, log) {
+    log("L2 pressed! Preparing optional payloads with onionHEN...");
+    const kstuff = await mapElf("kstuff.elf", p, chain);
+    const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
+    const PS5SX2Helper = await mapElf("PS5SX2Helper.elf", p, chain);
+    const OnionHEN = await mapElf("OnionHEN.elf", p, chain);
+    await sendElf("kstuff.elf", kstuff, p, chain);
+    log("kstuff.elf sent");
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await sendElf("shadowmountplus.elf", shadowmount, p, chain);
+    log("shadowmountplus.elf sent");
+    await sendElf("PS5SX2Helper.elf", PS5SX2Helper, p, chain);
+    log("PS5SX2Helper.elf sent");
+    await sendElf("OnionHEN.elf", OnionHEN, p, chain);
+    log("OnionHEN sent");
+    log("All requested playloads have been sent. You may now close the browser by holding the PS button...");
 }
 
 function patchShellcode(blob, symbols) {

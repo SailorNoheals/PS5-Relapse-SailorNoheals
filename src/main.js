@@ -90,7 +90,7 @@ function watchR2(onPress) {
     onPress();
   }
 
-  log("Press R2 to load kstuff, shadowmountplus, PS5SX2Helper, and etaHEN", "info");
+  log("Press R2 to load kstuff, shadowmountplus, PS5SX2Helper, and etaHEN.", "info");
   window.addEventListener("keydown", onKey, true);
 }
 
@@ -101,7 +101,7 @@ function watchL2(onPress) {
     event.preventDefault();
     onPress();
   }
-  log("Press L2 to load kstuff, shadowmountplus, and PS5SX2Helper without etaHEN", "info");
+  log("Press L2 to load kstuff, shadowmountplus, and PS5SX2Helper and onionHEN", "info");
   window.addEventListener("keydown", onKey, true);
 }
 
@@ -296,16 +296,16 @@ async function main(userlandRW) {
     log("The elfldr is now listening on port 9021. You may now push your payloads remotely if needed.")
     watchR2(async () => {
       try {
-        const { loadOptionalPayloads } = await import("./kexp.js");
-        await loadOptionalPayloads(p, chain, (message) => log(message, "info"));
+        const { loadOptionalPayloadsWithEtaHEN } = await import("./kexp.js");
+        await loadOptionalPayloadsWithEtaHEN(p, chain, (message) => log(message, "info"));
       } catch (error) {
         log(error instanceof Error ? error.message : String(error), "error");
       }
     });
     watchL2(async () => {
       try {
-        const { loadOptionalPayloadsWithoutEtaHEN } = await import("./kexp.js");
-        await loadOptionalPayloadsWithoutEtaHEN(p, chain, (message) => log(message, "info"));
+        const { loadOptionalPayloadsWithOnionHEN } = await import("./kexp.js");
+        await loadOptionalPayloadsWithOnionHEN(p, chain, (message) => log(message, "info"));
       } catch (error) {
         log(error instanceof Error ? error.message : String(error), "error");
       }
